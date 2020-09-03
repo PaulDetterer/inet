@@ -20,10 +20,11 @@
 #include <string.h>
 
 #include "inet/common/INETUtils.h"
+#include "inet/common/IProtocolRegistrationListener.h"
 #include "inet/common/ModuleAccess.h"
+#include "inet/common/packet/Packet.h"
 #include "inet/common/ProtocolGroup.h"
 #include "inet/common/ProtocolTag_m.h"
-#include "inet/common/packet/Packet.h"
 #include "inet/linklayer/acking/AckingMac.h"
 #include "inet/linklayer/acking/AckingMacHeader_m.h"
 #include "inet/linklayer/common/InterfaceTag_m.h"
@@ -62,6 +63,7 @@ void AckingMac::initialize(int stage)
         transmissionState = IRadio::TRANSMISSION_STATE_UNDEFINED;
 
         txQueue = check_and_cast<queueing::IPacketQueue *>(getSubmodule("queue"));
+        registerService(Protocol::ackingMac, gate("upperLayerIn"), gate("upperLayerOut"));
     }
     else if (stage == INITSTAGE_LINK_LAYER) {
         radio->setRadioMode(fullDuplex ? IRadio::RADIO_MODE_TRANSCEIVER : IRadio::RADIO_MODE_RECEIVER);
