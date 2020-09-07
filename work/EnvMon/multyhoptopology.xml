@@ -1,0 +1,5 @@
+<config>
+	<interface hosts="node0" address="10.0.0.1" netmask="255.255.x.x"/>
+    <interface hosts="node{1..}" address="10.0.x.x" netmask="255.255.x.x"/>
+    <autoroute metric="errorRate"/>
+</config>
