@@ -24,6 +24,7 @@ precompiled_*.h.*
 /doc/src/manual/inet-manual.pdf
 /doc/inet-manual-draft.pdf
 /examples/*/results/
+/work/*/results/
 /examples/*/*/results/
 /examples/*/*/*/results/
 /examples/*/cache/
@@ -34,6 +35,7 @@ precompiled_*.h.*
 /tests/*/*/work/
 /tests/*/results*/
 *.log
+*.err
 *.sim
 *.pyc
 *.pcap
