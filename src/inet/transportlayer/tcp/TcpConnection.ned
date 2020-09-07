@@ -21,6 +21,7 @@ package inet.transportlayer.tcp;
 
 simple TcpConnection {
     parameters:
+        int initialSequenceNumber = default(int(fmod(dropUnit(simTime()) * 250000.0, 4294967296.0)));
         @signal[state];    // FSM state
         @signal[sndWnd];    // snd_wnd
         @signal[rcvWnd];    // rcv_wnd
